@@ -1,4 +1,5 @@
 import streamlit as st
+import replicate
 from openai import OpenAI
 
 # Show title and description.
