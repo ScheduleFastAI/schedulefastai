@@ -1,13 +1,15 @@
 import streamlit as st
 import replicate
+import os
 
-# Show title and description.
-st.title("ScheduleFastAI") 
-with st.form("LLM.form"):
-    text = st.text_area("entre your text")
-    submit = st.form_shubmit_botton("submit")
+# App title
+st.set_page_config(page_title="🦙💬 Llama 2 Chatbot")
 
-   if 'REPLICATE_API_TOKEN' in st.secrets:
+# Replicate Credentials
+with st.sidebar:
+    st.title('🦙💬 Llama 2 Chatbot')
+    st.write('This chatbot is created using the open-source Llama 2 LLM model from Meta.')
+    if 'REPLICATE_API_TOKEN' in st.secrets:
         st.success('API key already provided!', icon='✅')
         replicate_api = st.secrets['REPLICATE_API_TOKEN']
     else:
